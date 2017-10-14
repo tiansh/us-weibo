@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8" />
+  <title>微博监督员批量拉黑工具</title>
+  <meta name="keywords" content="微博, 新浪微博, 监督员, 微博监督员, 拉黑, 黑名单" />
+  <meta name="description" content="帮您自动化解决拉黑微博监督员的烦恼，脚本会在后台帮您逐个慢慢拉黑" />
+  <style>
+    body, h1, h2, h3 { margin: 0; padding: 0; }
+    #background { background: #333; height: 240px; margin-bottom: -240px; }
+    #main-body { max-width: 1000px; min-width: 600px; margin: 0 auto; padding-bottom: 20px; }
+    header { height: 240px; color: white; text-shadow: 0 0 1px black; position: relative; }
+    a { color:#eb7350; font-weight: bold; text-decoration: none; }
+    header a { color: white; text-decoration: none; }
+    header h1 { position: absolute; top: 60px; left: 0; line-height: 40px; font-size: 28px; }
+    header h2 { position: absolute; top: 130px; left: 0; line-height: 25px; font-size: 18px; font-weight: normal; }
+    header #install { position: absolute; top: 80px; right: 0; display: block; width: 240px; height: 60px; line-height: 60px; background: #ffa00a; text-align: center; font-size: 26px; }
+    header #report { position: absolute; top: 140px; right: 0; line-height: 20px; font-size: 14px; }
+    header #report a { font-weight: normal; }
+    h3 { margin: 10px 0; font-size: 1.5em; }    
+    .in { margin-left: 2ch; }
+    .p { margin-bottom: 10px; }
+    table { border-collapse: collapse; }
+    table th, table td { border: 1px solid #666; padding: 2px 20px; }
+    table td { text-align: center; }
+    tbody th { text-align: left; font-weight: normal; }
+  </style>
+</head>
+<body>
+  <div id="background"></div>
+  <div id="main-body">
+
+    <header>
+      <h1>微博监督员批量拉黑工具</h1>
+      <h2>帮您自动化解决拉黑微博监督员的烦恼<br />脚本会在后台帮您逐个慢慢拉黑</h2>
+      <a id="install" href="Weibo_Supervisor_Blacklist_Tool.user.js">安装脚本</a>
+      <div id="report">
+        <a href="https://github.com/tiansh/us-weibo/issues" target="_blank">报告错误</a>
+      </div>
+    </header>
+
+    <h3>安装脚本</h3>
+    <div class="in">
+      <div class="p">
+        <iframe id="guide" height="0" style="display: block; width: 100%; border: none;" src="https://tiansh.github.io/us-guide/install.html#name=%E5%BE%AE%E5%8D%9A%E7%9B%91%E7%9D%A3%E5%91%98%E6%89%B9%E9%87%8F%E6%8B%89%E9%BB%91%E5%B7%A5%E5%85%B7&amp;installurl=https://tiansh.github.io/us-weibo/Weibo_Supervisor_Blacklist_Tool/Weibo_Supervisor_Blacklist_Tool.user.js&description=%E5%B8%AE%E6%82%A8%E8%87%AA%E5%8A%A8%E5%8C%96%E8%A7%A3%E5%86%B3%E6%8B%89%E9%BB%91%E5%BE%AE%E5%8D%9A%E7%9B%91%E7%9D%A3%E5%91%98%E7%9A%84%E7%83%A6%E6%81%BC%EF%BC%8C%E8%84%9A%E6%9C%AC%E4%BC%9A%E5%9C%A8%E5%90%8E%E5%8F%B0%E5%B8%AE%E6%82%A8%E9%80%90%E4%B8%AA%E6%85%A2%E6%85%A2%E6%8B%89%E9%BB%91&author=tiansh&version=2017.10.13.1&supporturl=https://github.com/tiansh/us-weibo/issues&homepageurl=https://tiansh.github.io/us-weibo/Weibo_Supervisor_Blacklist_Tool/&compatible=firefox+greasemonkey&compatible=chrome+violentmonkey&compatible=firefox+violentmonkey&compatible=opera+violentmonkey&color=#fff,#000,#eb7350,#ffa00a,#fff"></iframe>
+        <script>window.addEventListener('message', function (e) { if (e.origin === 'https://tiansh.github.io') try { document.getElementById('guide').height = JSON.parse(e.data).installheight } catch (ex) { } }, false);</script>
+      </div>
+    </div>
+
+    <h3>功能</h3>
+    <div class="in">
+      <div class="p">
+        脚本内预置了微博监督员的名单，脚本会自动逐个拉黑。
+      </div>
+      <div class="p">
+        您安装脚本后，只要打开任意的微博页面（需要登录），脚本便会自动工作。<br />
+        由于名单较大，为了不给微博的服务造成过大压力，脚本会慢慢地逐个拉黑，整个过程可能需要半小时到一小时。过程中无需交互，只要将打开微博首页的网页保持打开即可。<br />
+        您可以在浏览器中打开控制台检查脚本的工作进度。
+      </div>
+      <div class="p">
+        脚本完成工作后，您可以继续保留脚本，脚本今后可能不定期更新，届时会自动拉黑更新后的列表。
+      </div>
+    </div>
+
+    <h3>隐私声明</h3>
+    <div class="in">
+      <div class="p">脚本不会主动收集任何数据。</div>
+      <div class="p">脚本在运行过程中会在后台访问微博的服务器以添加黑名单，此外不会进行其他的网络请求。</div>
+    </div>
+
+    <h3>配合 YAWF 使用</h3>
+    <div class="in">
+      <div class="p">您可以配合 <a href="https://tiansh.github.io/yawf/">YAWF 脚本</a>及<a href="https://tiansh.github.io/yawf-rules/supervisor/">对应的订阅规则</a>使用，以做到一些功能的互补：</div>
+      <table>
+        <thead>
+          <tr><th>功能</th><th>拉黑</th><th><a href="https://tiansh.github.io/yawf-rules/supervisor/">YAWF</a></th></tr>
+        </thead>
+        <tbody>
+          <tr><th>阻止我关注他</th><td style="background: lightgreen">✓</td><td style="background: pink">✗</td></tr>
+          <tr><th>阻止他关注我</th><td style="background: lightgreen">✓</td><td style="background: pink">✗</td></tr>
+          <tr><th>不允许他与我互动</th><td style="background: lightgreen">✓</td><td style="background: pink">✗</td></tr>
+          <tr><th>不看他的微博</th><td style="background: #fc9"><abbr title="仍然会看到推广和热门">✗</abbr></td><td style="background: lightgreen">✓</td></tr>
+          <tr><th>不看提到他的微博</th><td style="background: pink">✗</td><td style="background: lightgreen">✓</td></tr>
+          <tr><th>不看他的评论</th><td style="background: pink">✗</td><td style="background: lightgreen">✓</td></tr>
+          <tr><th>不允许他看我的微博</th><td style="background: pink">✗</td><td style="background: pink">✗</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>关于与致谢</h3>
+    <div class="in">
+      <div class="p">脚本使用 MPL 2.0 协议授权。</div>
+      <div class="p">
+        本脚本的黑名单数据来自于 <a href="https://github.com/yu961549745/WeiboBlackList">yu961549745/WeiboBlackList</a> ，由 <a href="https://github.com/yu961549745">yu961549745</a> 及项目的其他贡献者整理。<br />
+        <details>
+          <summary>yu961549745/WeiboBlackList 项目使用 MIT 许可。</summary>
+          <pre>MIT License
+
+Copyright (c) 2017 余江涛
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</pre>
+        </details>
+      </div>
+
+    </div>
+
+
+  </div>
+</body>
+</html>
