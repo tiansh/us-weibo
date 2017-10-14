@@ -17,10 +17,16 @@
 // @exclude     https://weibo.com/a/bind/*
 // @exclude     https://weibo.com/nguide/*
 // @exclude     https://weibo.com/
+// @updateURL   https://tiansh.github.io/us-weibo/Weibo_Supervisor_Blacklist_Tool/Weibo_Supervisor_Blacklist_Tool.meta.js
+// @downloadURL https://tiansh.github.io/us-weibo/Weibo_Supervisor_Blacklist_Tool/Weibo_Supervisor_Blacklist_Tool.user.js
+// @homepageURL https://tiansh.github.io/us-weibo/Weibo_Supervisor_Blacklist_Tool/
+// @supportURL  https://github.com/tiansh/us-weibo/issues
+// @license     Mozilla Public License 2.0
 // @version     2017.10.13.1
 // @grant       GM_setValue
 // @grant       GM_getValue
 // @grant       GM_xmlhttpRequest
 // @grant       unsafeWindow
+// @connect     weibo.com
 // @run-at      document-end
 // ==/UserScript==
